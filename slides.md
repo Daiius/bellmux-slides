@@ -79,9 +79,9 @@ section.config .cols > div:nth-child(1) { flex: 57; }
 section.config .cols > div:nth-child(2) { flex: 39; }
 section.config pre,
 section.config pre code { font-size: 22px; }
-section.demo { text-align: center; }
-section.demo h2 { margin-bottom: 8px; }
-section.demo img { box-shadow: 0 4px 16px rgba(0,0,0,0.25); border-radius: 6px; }
+/* デモ GIF を画面いっぱいに表示（背景画像ではなく img にして src リセットで頭出し可能に） */
+section.demo { padding: 0; }
+section.demo .demo-gif { display: block; width: 100%; height: 100%; object-fit: contain; }
 </style>
 
 <!-- _class: title -->
@@ -158,8 +158,9 @@ https://github.com/Daiius/bellmux
 
 ---
 
-<!-- 動作デモ。タイトルは表示せず画面いっぱいに。音やステータスバーの色変更は tmux / coding agent 側の設定によるもの -->
-![bg contain](images/bellmux-demo.gif)
+<!-- _class: demo -->
+<!-- 動作デモ。画面いっぱいの img。スライド遷移時に末尾の script が src をリセットし頭出し再生する -->
+<img class="demo-gif" src="images/bellmux-demo.gif" alt="bellmux 動作デモ">
 
 ---
 
@@ -321,3 +322,32 @@ bind-key a run-shell '
 <br>
 
 <small>github.com/Daiius/bellmux — おわり</small>
+
+<!-- スライド遷移でデモ GIF を頭出し再生する。アクティブな svg.bespoke-marp-slide を監視し、
+     デモのスライドがアクティブになるたびに img の src をリセットして GIF を最初から再生する -->
+<script>
+(function () {
+  function setup() {
+    var img = document.querySelector('img.demo-gif');
+    if (!img) return;
+    if (!img.dataset.src) img.dataset.src = img.getAttribute('src');
+    var slide = img.closest('svg.bespoke-marp-slide') || img.closest('svg');
+    if (!slide) return;
+    function restart() {
+      var s = img.dataset.src;
+      img.setAttribute('src', '');
+      requestAnimationFrame(function () { img.setAttribute('src', s); });
+    }
+    function isActive() { return slide.classList.contains('bespoke-marp-active'); }
+    var was = isActive();
+    if (was) restart();
+    new MutationObserver(function () {
+      var now = isActive();
+      if (now && !was) restart();
+      was = now;
+    }).observe(slide, { attributes: true, attributeFilter: ['class'] });
+  }
+  if (document.readyState === 'complete') setTimeout(setup, 0);
+  else window.addEventListener('load', function () { setTimeout(setup, 0); });
+})();
+</script>
