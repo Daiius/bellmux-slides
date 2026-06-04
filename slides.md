@@ -68,6 +68,11 @@ small { color: #777; }
 .cite { display: flex; align-items: center; gap: 12px; margin-top: 40px; color: #777; }
 .cite img { height: 30px; }
 section.features table { margin-inline: auto; }
+/* シナリオ図の列幅を SVG の実寸比(779.5 : 602)に合わせる */
+section.scenarios .cols > div:nth-child(1) { flex: 779.5; }
+section.scenarios .cols > div:nth-child(2) { flex: 602; }
+/* 注記をぶら下げインデント（2 行目を ※ の右に揃える） */
+.note { display: inline-block; padding-left: 1.6em; text-indent: -1.6em; }
 section.demo { text-align: center; }
 section.demo h2 { margin-bottom: 8px; }
 section.demo img { box-shadow: 0 4px 16px rgba(0,0,0,0.25); border-radius: 6px; }
@@ -178,6 +183,8 @@ section.demo img { box-shadow: 0 4px 16px rgba(0,0,0,0.25); border-radius: 6px; 
 
 ---
 
+<!-- _class: scenarios -->
+
 ## 2 つのシナリオ
 
 <div class="cols">
@@ -199,7 +206,7 @@ section.demo img { box-shadow: 0 4px 16px rgba(0,0,0,0.25); border-radius: 6px; 
 </div>
 </div>
 
-<small>※ <code>next</code> 自体は ack しません（「見に行っただけ」かもしれないので）。解除はプロンプト送信などの明示操作で。</small>
+<small class="note">※ <code>next</code> 自体は ack しません（「見に行っただけ」かもしれないので）。<br>解除はプロンプト送信などの明示操作で。</small>
 
 ---
 
