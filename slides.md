@@ -20,6 +20,11 @@ title: "Coding Agents の入力待ちを通知して、その画面にジャン�
 section {
   font-size: 26px;
 }
+/* 各スライドの見出し(h2)をタイトル(h1)と同じ色に揃える */
+h2 { color: var(--h1-color); }
+/* タイトル行の高さに収めるロゴ（本文の横幅を確保するため絶対配置） */
+section.env { position: relative; }
+.title-logo { position: absolute; top: 122px; right: 64px; height: 60px; }
 .logos {
   display: flex;
   gap: 36px;
@@ -87,9 +92,11 @@ section.demo img { box-shadow: 0 4px 16px rgba(0,0,0,0.25); border-radius: 6px; 
 
 ---
 
-## まず：私の開発環境 — tmux
+<!-- _class: env -->
 
-![bg right:32% w:80%](images/tmux-logo.png)
+## 開発環境の紹介 — tmux
+
+<img src="images/tmux-logo.png" class="title-logo" alt="tmux">
 
 **tmux = ターミナルマルチプレクサ**
 
@@ -98,8 +105,8 @@ section.demo img { box-shadow: 0 4px 16px rgba(0,0,0,0.25); border-radius: 6px; 
 
 **なぜ使っているか（きっかけはサーバー管理）**
 
-- サーバー（数値計算・個人開発など）に SSH して作業 → 接続が切れても tmux 内の作業はそのまま残るのが便利だった
-- そのうち**ローカルでも同じ tmux 設定**を使うようになり、ローカル / サーバーで同じ操作感に
+- サーバー（数値計算・個人開発など）に ssh して作業 → 接続が切れても tmux 内の作業はそのまま残るのが便利だった
+- そのうち**ローカル / サーバーで同じ操作感**が欲しくなり、ローカルでも同じ tmux 設定を使うように
 
 ---
 
