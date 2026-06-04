@@ -10,8 +10,8 @@ title: "Coding Agents の入力待ちを通知して、その画面にジャン�
 画像の出典（いずれも簡易発表用に引用。商標は各社に帰属）:
 - tmux ロゴ: https://commons.wikimedia.org/wiki/File:Tmux_logo.svg
 - Rust ロゴ: https://commons.wikimedia.org/wiki/File:Rust_programming_language_black_logo.svg
-- OpenAI ロゴ: https://commons.wikimedia.org/wiki/File:OpenAI_Logo.svg
-- Anthropic ロゴ: https://commons.wikimedia.org/wiki/File:Anthropic_logo.svg
+- Claude アイコン: https://commons.wikimedia.org/wiki/File:Claude_AI_symbol.svg
+- OpenAI アイコン: https://commons.wikimedia.org/wiki/File:OpenAI_logo_2025_(symbol).svg
 - デモ GIF: 自作（bellmux リポジトリ）
 - 図（overview / scenario1 / scenario2）: diagrams/*.mmd から mermaid-cli で生成
 -->
@@ -83,8 +83,8 @@ Daiji Yamashita
 ## 最近の悩み：coding agents の「入力待ち」
 
 <div class="logos" style="justify-content:flex-start; gap:48px">
-<span class="agent"><img src="images/anthropic-logo.svg"> Claude Code</span>
-<span class="agent"><img src="images/openai-logo.svg"> Codex CLI</span>
+<span class="agent"><img src="images/claude-icon.svg"> Claude Code</span>
+<span class="agent"><img src="images/openai-icon.svg"> Codex CLI</span>
 </div>
 
 - coding agents は**自律的に動く時間がどんどん長く**なってきた
@@ -115,13 +115,19 @@ Daiji Yamashita
 
 ---
 
-<!-- _class: demo -->
+<!-- 動作デモ。タイトルは表示せず画面いっぱいに。音やステータスバーの色変更は tmux / coding agent 側の設定によるもの -->
+![bg contain](images/bellmux-demo.gif)
 
-## 動作デモ
+---
 
-![w:82%](images/bellmux-demo.gif)
+## 仕組み：既存の仕組みの“あいだ”を繋ぐだけ
 
-<small>※ 音やステータスバーの色変更は tmux / coding agent 側の設定によるもの</small>
+<!-- diagrams/overview.mmd から生成 -->
+![w:78%](images/overview.svg)
+
+- **agent → bellmux**：hooks が「待ちになった / 解除した」を `push` / `ack`
+- **tmux → bellmux**：run-shell やキーバインドが「待ちはある？ / 次は？」を `has` / `next`
+- bellmux は通知を**記録して返すだけ**。表示・音・ジャンプは tmux / agent 側に任せる
 
 ---
 
@@ -137,17 +143,6 @@ Daiji Yamashita
 - tmux には `run-shell`、coding agents には `hooks` という
   **「適切なタイミングでコマンドを実行する仕組み」がすでにある**
 - なので bellmux 本体がやることはとても少ない
-
----
-
-## 仕組み：既存の仕組みの“あいだ”を繋ぐだけ
-
-<!-- diagrams/overview.mmd から生成 -->
-![w:78%](images/overview.svg)
-
-- **agent → bellmux**：hooks が「待ちになった / 解除した」を `push` / `ack`
-- **tmux → bellmux**：run-shell やキーバインドが「待ちはある？ / 次は？」を `has` / `next`
-- bellmux は通知を**記録して返すだけ**。表示・音・ジャンプは tmux / agent 側に任せる
 
 ---
 
