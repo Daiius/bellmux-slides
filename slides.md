@@ -67,6 +67,7 @@ section.title h1 {
 small { color: #777; }
 .cite { display: flex; align-items: center; gap: 12px; margin-top: 40px; color: #777; }
 .cite img { height: 30px; }
+section.features table { margin-inline: auto; }
 section.demo { text-align: center; }
 section.demo h2 { margin-bottom: 8px; }
 section.demo img { box-shadow: 0 4px 16px rgba(0,0,0,0.25); border-radius: 6px; }
@@ -160,7 +161,9 @@ section.demo img { box-shadow: 0 4px 16px rgba(0,0,0,0.25); border-radius: 6px; 
 
 ---
 
-## できること（最小限の 4 機能）
+<!-- _class: features -->
+
+## できること：最小限の 4 機能
 
 | コマンド | 役割 |
 |---|---|
