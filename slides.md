@@ -34,6 +34,27 @@ section {
   color: #666;
   font-size: 22px;
 }
+section.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* 各ブロックを左右中央に */
+  justify-content: center;   /* 全体を上下中央に */
+}
+section.title h1 {
+  text-align: left;          /* タイトル文字は左揃え（ブロックは中央） */
+  margin: 0;
+}
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+.hero img { height: 38px; }
+.hero img.tmux { height: 44px; }
+.hero .item { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 22px; }
+.hero .conj { color: #9aa0a6; font-size: 20px; }
+.hero .bell { font-weight: 700; font-size: 24px; }
 .cols {
   display: flex;
   gap: 32px;
@@ -47,20 +68,22 @@ section.demo h2 { margin-bottom: 8px; }
 section.demo img { box-shadow: 0 4px 16px rgba(0,0,0,0.25); border-radius: 6px; }
 </style>
 
+<!-- _class: title -->
+
 # Coding Agents の入力待ちを通知して、<br>その画面にジャンプしたい
 
 <span class="lead-sub">— 環境とツール開発の紹介 —</span>
 
-<div class="logos">
-
-<!-- 普段の開発環境（tmux）を象徴。coding agents は後段で紹介 -->
-![h:56](images/tmux-logo.png)
-
+<!-- 「Claude Code / Codex on tmux with bellmux」をロゴ＋接続語で表現 -->
+<div class="hero">
+<span class="item"><img src="images/claude-icon.svg" alt="Claude Code"> Claude Code</span>
+<span class="conj">&</span>
+<span class="item"><img src="images/openai-icon.svg" alt="Codex CLI"> Codex CLI</span>
+<span class="conj">on</span>
+<img src="images/tmux-logo.png" class="tmux" alt="tmux">
+<span class="conj">with</span>
+<span class="bell">🔔 bellmux</span>
 </div>
-
-<br>
-
-Daiji Yamashita
 
 ---
 
