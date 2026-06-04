@@ -1,0 +1,8 @@
+sequenceDiagram
+  participant T as tmux
+  participant B as bellmux
+  Note over T,B: シナリオ② 待ちペインへジャンプ
+  T->>T: prefix + a を押す
+  T->>B: next（次の待ちペインは？）
+  B-->>T: pane_id を返す（1 周したら通知）
+  T->>T: そのペインへ switch-client

@@ -1,0 +1,3 @@
+flowchart LR
+  A["coding agent<br/>(hooks)"] -->|"push / ack"| B["bellmux<br/>通知を記録 / 削除"]
+  B -->|"has / next"| C["tmux<br/>(run-shell / keybind)"]

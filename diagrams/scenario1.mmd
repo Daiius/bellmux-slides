@@ -1,0 +1,11 @@
+sequenceDiagram
+  participant H as coding agent (hooks)
+  participant B as bellmux
+  participant T as tmux
+  Note over H,T: シナリオ① 入力待ちを表示に反映
+  H->>B: push（入力待ち発生）
+  loop status-interval ごと
+    T->>B: has?（待ちはある？）
+    B-->>T: 有無を返す
+    T->>T: ステータスバーの色を変える
+  end
