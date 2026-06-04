@@ -37,7 +37,7 @@ pnpm diagrams
 
 `images/` 配下のロゴは簡易発表用に各サイトから引用したものです（商標は各社に帰属）。出典 URL は `slides.md` 冒頭の HTML コメントに記載しています。
 
-- tmux ロゴ / Rust ロゴ … Wikimedia Commons
+- tmux ロゴ … Wikimedia Commons
 - Claude アイコン / OpenAI アイコン … Wikimedia Commons
 - `bellmux-demo.gif` … 自作（[bellmux](https://github.com/Daiius/bellmux) リポジトリより）
 - `overview.svg` / `scenario1.svg` / `scenario2.svg` … `diagrams/*.mmd` から mermaid-cli で生成

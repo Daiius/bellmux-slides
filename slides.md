@@ -9,7 +9,6 @@ title: "Coding Agents の入力待ちを通知して、その画面にジャン�
 <!--
 画像の出典（いずれも簡易発表用に引用。商標は各社に帰属）:
 - tmux ロゴ: https://commons.wikimedia.org/wiki/File:Tmux_logo.svg
-- Rust ロゴ: https://commons.wikimedia.org/wiki/File:Rust_programming_language_black_logo.svg
 - Claude アイコン: https://commons.wikimedia.org/wiki/File:Claude_AI_symbol.svg
 - OpenAI アイコン: https://commons.wikimedia.org/wiki/File:OpenAI_logo_2025_(symbol).svg
 - デモ GIF: 自作（bellmux リポジトリ）
@@ -133,14 +132,14 @@ section.demo img { box-shadow: 0 4px 16px rgba(0,0,0,0.25); border-radius: 6px; 
 
 ## 作ったもの：bellmux 🔔
 
-**tmux と coding agents の「入力待ち」を取り次ぐ小さな CLI**（Rust 製）
+**tmux と coding agents の「入力待ち」を取り次ぐ小さな CLI**
 
 - 「このペインが待ち状態になった」を**記録**する
 - 「待ちペインに移動したい」に**答える**
 - それだけ。表示や音は tmux / agent 側の設定に任せる
 
 <div class="cite">
-<img src="images/rust-logo.svg"> <span>Rust 製 / github.com/Daiius/bellmux</span>
+<span>https://github.com/Daiius/bellmux</span>
 </div>
 
 ---
