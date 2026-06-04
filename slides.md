@@ -150,9 +150,11 @@ section.demo img { box-shadow: 0 4px 16px rgba(0,0,0,0.25); border-radius: 6px; 
 - 「待ちペインに移動したい」に**答える**
 - それだけ。表示や音は tmux / agent 側の設定に任せる
 
-<div class="cite">
-<span>https://github.com/Daiius/bellmux</span>
-</div>
+<small>
+
+https://github.com/Daiius/bellmux
+
+</small>
 
 ---
 
