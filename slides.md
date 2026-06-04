@@ -73,6 +73,12 @@ section.scenarios .cols > div:nth-child(1) { flex: 779.5; }
 section.scenarios .cols > div:nth-child(2) { flex: 602; }
 /* 注記をぶら下げインデント（2 行目を ※ の右に揃える） */
 .note { display: inline-block; padding-left: 1.6em; text-indent: -1.6em; }
+/* コードブロックの列幅を最長行の文字数比(約 57 : 39)に合わせ、
+   大きめのベースフォント＋downscale で両方を列幅いっぱいに揃える */
+section.config .cols > div:nth-child(1) { flex: 57; }
+section.config .cols > div:nth-child(2) { flex: 39; }
+section.config pre,
+section.config pre code { font-size: 22px; }
 section.demo { text-align: center; }
 section.demo h2 { margin-bottom: 8px; }
 section.demo img { box-shadow: 0 4px 16px rgba(0,0,0,0.25); border-radius: 6px; }
@@ -209,6 +215,8 @@ section.demo img { box-shadow: 0 4px 16px rgba(0,0,0,0.25); border-radius: 6px; 
 <small class="note">※ <code>next</code> 自体は ack しません（「見に行っただけ」かもしれないので）。<br>解除はプロンプト送信などの明示操作で。</small>
 
 ---
+
+<!-- _class: config -->
 
 ## 設定はちょっとだけ（init で雛形を出力）
 
