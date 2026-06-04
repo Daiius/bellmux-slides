@@ -6,6 +6,7 @@
   "scripts": {
     "diagrams": "for d in overview scenario1 scenario2; do mmdc -i diagrams/$d.mmd -o images/$d.svg -p diagrams/puppeteer.json -c diagrams/mermaid.json -b transparent; done",
     "build": "marp slides.md -o build/slides.html --html && cp -r images build/",
+    "build:pages": "marp slides.md -o public/index.html --html && cp -r images public/",
     "build:pdf": "marp slides.md -o build/slides.pdf --html --allow-local-files",
     "preview": "marp -p slides.md --html",
     "watch": "marp -w slides.md -o build/slides.html --html"
